@@ -1,9 +1,11 @@
-export function App() {
+import AppRoutes from './routes';
+
+function App() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="font-medium">Hello World</div>
-    </div>
-  )
+    <>
+      <AppRoutes />
+    </>
+  );
 }
 
-export default App
+export default App;

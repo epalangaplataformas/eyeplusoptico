@@ -1,11 +1,117 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-AO">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vite-app</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Title (SEO otimizado) -->
+    <title>Eye Plus Óptico | Especialistas em Optometria e Saúde Visual em Angola</title>
+
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="Eye Plus Óptico em Luanda, Angola — serviço especializado em optometria, exames de vista, lentes de contacto, armações e cuidados com a saúde visual. Atendimento profissional e tecnologia avançada para melhor visão."
+    />
+
+    <!-- Meta Keywords -->
+    <meta
+      name="keywords"
+      content="Eye Plus Optico, optometria Angola, exames de vista, lentes de contacto, óculos graduados, saúde visual Luanda, óptica Angola, Eye Plus Óptico"
+    />
+
+    <!-- Open Graph (Facebook, WhatsApp, etc.) -->
+    <meta property="og:title" content="Eye Plus Óptico | Saúde Visual em Angola" />
+    <meta
+      property="og:description"
+      content="Descubra serviços profissionais de optometria, exames visuais e produtos ópticos na Eye Plus Óptico em Luanda, Angola. Atendimento especializado e tecnologia de ponta."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://eyeplusoptico.com" />
+    <meta property="og:site_name" content="Eye Plus Óptico" />
+    <meta property="og:locale" content="pt_AO" />
+    <meta property="og:image" content="https://eyeplusoptico.com/banner.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Eye Plus Óptico | Saúde Visual e Optometria em Angola" />
+    <meta
+      name="twitter:description"
+      content="Optometria, exames de vista, lentes de contacto e óculos graduados com atendimento profissional na Eye Plus Óptico em Luanda, Angola."
+    />
+    <meta name="twitter:image" content="https://eyeplusoptico.com/banner.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://eyeplusoptico.com/" />
+
+    <!-- Author -->
+    <meta name="author" content="Epalanga Plataformas - Tecnologia, (SU), Lda" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Local Business Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "Eye Plus Óptico",
+        "description": "Serviços de optometria, exames de vista, lentes de contacto e produtos ópticos em Luanda, Angola.",
+        "url": "https://eyeplusoptico.com",
+        "logo": "https://eyeplusoptico.com/logo.png",
+        "telephone": "+244947197036",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Morada em Luanda Sul, Angola",
+          "addressLocality": "Luanda",
+          "addressCountry": "AO"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -8.8383,
+          "longitude": 13.2344
+        },
+        "sameAs": [
+          "https://www.facebook.com/eyeplusoptico",
+          "https://www.instagram.com/eyeplusoptico"
+        ],
+        "medicalSpecialty": "Optometry"
+      }
+    </script>
+
+    <!-- Dark mode script -->
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem("theme");
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const isDark = theme === "dark" || (!theme && prefersDark);
+          document.documentElement.classList.toggle("dark", isDark);
+        } catch (e) {
+          console.error("Erro ao aplicar tema:", e);
+        }
+      })();
+    </script>
+
+    <!-- Meta theme-color for mobile -->
+    <meta name="theme-color" content="#0057D9" />
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
