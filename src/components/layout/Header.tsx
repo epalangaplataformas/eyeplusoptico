@@ -256,17 +256,119 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() =>
-              setMobileMenuOpen(!mobileMenuOpen)
-            }
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <RiMenu3Fill className="h-5 w-5" />
-            )}
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <RiMenu3Fill className="h-5 w-5" />}
           </Button>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-16 left-0 w-full bg-background border-t border-border md:hidden z-50"
+            >
+              <ul className="flex flex-col gap-2 p-4">
+                {/* Início */}
+                <li>
+                  <Link
+                    to="/"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-sm font-medium hover:text-primary"
+                  >
+            Início
+                  </Link>
+                </li>
+
+                {/* Serviços */}
+                <li>
+                  <details className="group">
+                    <summary className="flex items-center justify-between cursor-pointer text-sm font-medium hover:text-primary">
+              Serviços
+                      <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+                    </summary>
+                    <ul className="mt-2 flex flex-col gap-1 pl-4">
+                      {services.map(({ label, href }) => (
+                        <li key={href}>
+                          <Link
+                            to={href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="text-sm hover:text-primary"
+                          >
+                            {label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                </li>
+
+                {/* Lojas */}
+                <li>
+                  <details className="group">
+                    <summary className="flex items-center justify-between cursor-pointer text-sm font-medium hover:text-primary">
+              Lojas
+                      <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+                    </summary>
+                    <ul className="mt-2 flex flex-col gap-1 pl-4">
+                      {stores.map((store) => (
+                        <li key={store.name}>
+                          <a
+                            href={store.mapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="text-sm hover:text-primary"
+                          >
+                            {store.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                </li>
+
+                {/* Sobre Nós */}
+                <li>
+                  <Link
+                    to="/sobre"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-sm font-medium hover:text-primary"
+                  >
+            Sobre Nós
+                  </Link>
+                </li>
+
+                {/* Contactos */}
+                <li>
+                  <Link
+                    to="/contactos"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-sm font-medium hover:text-primary"
+                  >
+            Contactos
+                  </Link>
+                </li>
+
+                {/* Marcar Consulta */}
+                <li>
+                  <Button
+                    onClick={() => {
+                      navigate('/marcar-consulta');
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full mt-2"
+                  >
+            Marcar Consulta
+                  </Button>
+                </li>
+              </ul>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
